@@ -1,6 +1,6 @@
 export class NavBar extends React.Component {
   render() {
-    if (!this.props.loggedIn) {
+    if (!this.props.user) {
       return React.createElement("nav", {
         className: "navbar navbar-expand-lg navbar-light bg-light"
       }, React.createElement("a", {
@@ -22,17 +22,21 @@ export class NavBar extends React.Component {
       }, React.createElement("div", {
         className: "navbar-nav"
       }, React.createElement("a", {
-        className: "nav-item nav-link active",
-        href: "#"
+        className: "nav-item nav-link",
+        href: "#",
+        onClick: this.props.onClickLoadHomePage
       }, "Start"), React.createElement("a", {
         className: "nav-item nav-link",
-        href: "#"
+        href: "#",
+        onClick: this.props.onClickLoadRegistrationPage
       }, "Registrera dig"), React.createElement("a", {
         className: "nav-item nav-link",
-        href: "#"
+        href: "#",
+        onClick: this.props.onClickLoadLoginPage
       }, "Logga in"), React.createElement("a", {
-        className: "nav-item nav-link disabled",
-        href: "#"
+        className: "nav-item nav-link",
+        href: "#",
+        onClick: this.props.onClickLoadUserlistPage
       }, "Se anv\xE4ndare"))));
     } else {
       return React.createElement("nav", {
@@ -56,20 +60,25 @@ export class NavBar extends React.Component {
       }, React.createElement("div", {
         className: "navbar-nav"
       }, React.createElement("a", {
-        className: "nav-item nav-link active",
-        href: "#"
+        className: "nav-item nav-link",
+        href: "#",
+        onClick: this.props.onClickLoadHomePage
       }, "Start"), React.createElement("a", {
         className: "nav-item nav-link",
-        href: "#"
+        href: "#",
+        onClick: this.props.onClickLoadLogoutPage
       }, "Logga ut"), React.createElement("a", {
-        className: "nav-item nav-link disabled",
-        href: "#"
+        className: "nav-item nav-link",
+        href: "#",
+        onClick: this.props.onClickLoadUserlistPage
       }, "Se anv\xE4ndare"), React.createElement("a", {
         className: "nav-item nav-link",
-        href: "#"
+        href: "#",
+        onClick: this.props.onClickLoadMyEntriesPage
       }, "Mina Inl\xE4gg"), React.createElement("a", {
         className: "nav-item nav-link",
-        href: "#"
+        href: "#",
+        onClick: this.props.onClickLoadNewEntryPage
       }, "Skriv Inl\xE4gg"))));
     }
   }
