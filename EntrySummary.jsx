@@ -1,10 +1,8 @@
-export class EntrySummary extends React.Component {
-  render(){
+export let EntrySummary = (props) => {
     return (
       <a href="#"><div>
-        <h2>{this.props.summary.title}</h2>
-        <p>{this.props.summary.date}</p>
+        <h2>{props.summary.title}</h2>
+        <p>{props.summary.date}</p>
       </div></a>
     )
-  }
 }

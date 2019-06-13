@@ -1,17 +1,15 @@
 import { Comments } from './Comments.js';
 import { CommentForm } from './CommentForm.js';
 
-export class Entry extends React.Component {
-  render(){
+export let Entry = (props) => {
     let edit = <button>Redigera</button>;
     return (
       <div>
-        <h1>{this.props.entry.title}</h1>
-        <p>{this.props.entry.content}</p>
-        {this.props.entry.userID === this.props.user.userID ? edit : ""}
-        <Comments comments={this.props.entry.comments} user={this.props.user} />
-        <CommentForm user={this.props.user} />
+        <h1>{props.entry.title}</h1>
+        <p>{props.entry.content}</p>
+        {props.entry.userID === props.user.userID ? edit : ""}
+        <Comments comments={props.entry.comments} user={props.user} />
+        <CommentForm user={props.user} />
       </div>
     );
-  }
 }

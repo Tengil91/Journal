@@ -1,5 +1,4 @@
-export class Registration extends React.Component {
-  render(){
+export let Registration = (props) => {
     return (
       <div>
         <form action="">
@@ -9,5 +8,4 @@ export class Registration extends React.Component {
         </form>
       </div>
     );
-  }
 }

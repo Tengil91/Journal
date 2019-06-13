@@ -1,14 +1,11 @@
 import { Comments } from './Comments.js';
 import { CommentForm } from './CommentForm.js';
-export class Entry extends React.Component {
-  render() {
-    let edit = React.createElement("button", null, "Redigera");
-    return React.createElement("div", null, React.createElement("h1", null, this.props.entry.title), React.createElement("p", null, this.props.entry.content), this.props.entry.userID === this.props.user.userID ? edit : "", React.createElement(Comments, {
-      comments: this.props.entry.comments,
-      user: this.props.user
-    }), React.createElement(CommentForm, {
-      user: this.props.user
-    }));
-  }
-
-}
+export let Entry = props => {
+  let edit = React.createElement("button", null, "Redigera");
+  return React.createElement("div", null, React.createElement("h1", null, props.entry.title), React.createElement("p", null, props.entry.content), props.entry.userID === props.user.userID ? edit : "", React.createElement(Comments, {
+    comments: props.entry.comments,
+    user: props.user
+  }), React.createElement(CommentForm, {
+    user: props.user
+  }));
+};

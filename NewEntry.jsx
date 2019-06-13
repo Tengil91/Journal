@@ -1,5 +1,4 @@
-export class NewEntry extends React.Component {
-  render(){
+export let NewEntry = (props) => {
     return (
       <div>
         <h1>Skriv ett inlägg</h1>
@@ -10,5 +9,4 @@ export class NewEntry extends React.Component {
         </form>
       </div>
     );
-  }
 }

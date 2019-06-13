@@ -34,56 +34,14 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {user: userinfo, page: 'entry'};
-    this.onClickLoadHomePage = this.onClickLoadHomePage.bind(this);
-    this.onClickLoadLoginPage = this.onClickLoadLoginPage.bind(this);
-    this.onClickLoadLogoutPage = this.onClickLoadLogoutPage.bind(this);
-    this.onClickLoadUserlistPage = this.onClickLoadUserlistPage.bind(this);
-    this.onClickLoadMyEntriesPage = this.onClickLoadMyEntriesPage.bind(this);
-    this.onClickLoadNewEntryPage = this.onClickLoadNewEntryPage.bind(this);
-    this.onClickLoadEntryPage = this.onClickLoadEntryPage.bind(this);
+    this.onNavLinkClick = this.onNavLinkClick.bind(this);
   }
 
-  //nav link listeners
-  onClickLoadHomePage(e){
-    console.log(e.target);
-    e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
-    this.setState({page: 'home'});
-  }
-  onClickLoadLoginPage(e){
-    e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
-    this.setState({page: 'login'});
-  }
-  onClickLoadLogoutPage(e){
-    e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
-    this.setState({page: 'logout', user: null});
-  }
-  onClickLoadUserlistPage(e){
-    e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
-    this.setState({page: 'userlist'});
-  }
-  onClickLoadMyEntriesPage(e){
-    e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
-    this.setState({page: 'myEntries'});
-  }
-  onClickLoadNewEntryPage(e){
-    e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
-    this.setState({page: 'newEntry'});
-  }
-  onClickLoadEntryPage(e){
-    e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
-    this.setState({page: 'entry'});
-  }
-  onClickLoadRegistrationPage(e){
-    e.stopPropagation();
-    e.nativeEvent.stopImmediatePropagation();
-    this.setState({page: 'registration'});
+  onNavLinkClick(page){
+    if(page === 'logout'){
+      this.setState({page: 'logout', user: null});
+    }
+    this.setState({page: page});
   }
 
   render(){
@@ -91,13 +49,7 @@ class App extends React.Component {
       <div>
         <NavBar
           user={this.state.user}
-          onClickLoadHomePage={this.onClickLoadHomePage}
-          onClickLoadLoginPage={this.onClickLoadLoginPage}
-          onClickLoadLogoutPage={this.onClickLoadLogoutPage}
-          onClickLoadUserlistPage={this.onClickLoadUserlistPage}
-          onClickLoadMyEntriesPage={this.onClickLoadMyEntriesPage}
-          onClickLoadNewEntryPage={this.onClickLoadNewEntryPage}
-          onClickLoadRegistrationPage={this.onClickLoadRegistrationPage}
+          onNavLinkClick={this.onNavLinkClick}
          />
         {this.state.page === 'home' ? <EntrySummaries summaries={summaries} /> : ""} 
         {this.state.page === 'entry' ? <Entry entry={entry} user={userinfo} /> : ""} 
@@ -106,7 +58,7 @@ class App extends React.Component {
         {this.state.page === 'userlist' ? <Users users={userlist} /> : ""}
         {this.state.page === 'myEntries' ? <EntrySummaries summaries={mysummaries} /> : ""}
         {this.state.page === 'newEntry' ? <NewEntry /> : ""}
-        {this.state.page === 'registration' ? <Registration /> : ""}
+        {this.state.page === 'register' ? <Registration /> : ""}
       </div>
     );
   }

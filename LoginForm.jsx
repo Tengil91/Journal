@@ -1,5 +1,4 @@
-export class LoginForm extends React.Component {
-  render(){
+export let LoginForm = (props) => {
     return (
       <form>
         <div class="form-group">
@@ -13,5 +12,4 @@ export class LoginForm extends React.Component {
         <button type="submit" class="btn btn-primary">Logga in</button>
       </form>
     );
-  }
 }

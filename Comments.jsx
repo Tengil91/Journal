@@ -1,16 +1,14 @@
 import { Comment } from './Comment.js';
 
-export class Comments extends React.Component {
-  render(){
-    let comments = this.props.comments;
+export let Comments = (props) => {
+    let comments = props.comments;
     return (
       <div>
         {
           comments.map(comment => {
-            return <Comment user={this.props.user} comment={comment} />;
+            return <Comment user={props.user} comment={comment} />;
           })
         }
       </div>
     );
-  }
 }
